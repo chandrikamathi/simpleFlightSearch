@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/flight.css">
 </head>
 <body ng-app="app" ng-controller="FlightCtrl">
-{message}
 
 <form name="flightForm" method="GET" novalidate ng-class="{'form-error':submitted}" ng-submit="getFlightDetails()" >
 
@@ -19,7 +18,6 @@
     <input type="text" name="flightNumber" required ng-model="flight.flightNumber" class="form-input"/>
     <div ng-messages="flightForm.flightNumber.$error" ng-show="submitted && flightForm.flightNumber.$invalid" class="error-messages">
         <p ng-message="flightNumber">Invalid flight Number!</p>
-        <p ng-message="required">Flight Number is required!</p>
     </div>
     <div class="check" ng-show="submitted && flightForm.flightNumber.$valid">&#x2713;</div>
 
@@ -27,14 +25,12 @@
     <label class="form-label">Origin:</label>
     <input type="text" name="origin" ng-model="flight.origin" ng-trim="true" required class="form-input" />
     <div ng-messages="flightForm.origin.$error" ng-show="submitted && flightForm.origin.$invalid" class="error-messages">
-        <p ng-message="required">Origin Airport is required!</p>
     </div>
     <div class="check" ng-show="submitted && flightForm.origin.$valid">&#x2713;</div>
 
     <label class="form-label">Destination:</label>
     <input type="text" name="destination" ng-model="flight.destination" ng-trim="true" required class="form-input" />
     <div ng-messages="flightForm.destination.$error" ng-show="submitted && flightForm.destination.$invalid" class="error-messages">
-        <p ng-message="required">Destination Airport is required!</p>
     </div>
     <div class="check" ng-show="submitted && flightForm.destination.$valid">&#x2713;</div>
 
