@@ -36,8 +36,14 @@
     <div ng-messages="flightForm.destination.$error" ng-show="submitted && flightForm.destination.$invalid" class="error-messages">
         <p ng-message="required">Destination Airport is required!</p>
     </div>
-    <div class="check" ng-show="submitted && flightForm.origin.$valid">&#x2713;</div>
+    <div class="check" ng-show="submitted && flightForm.destination.$valid">&#x2713;</div>
 
+    <label class="form-label">Departure:</label>
+    <input type="date" name="departure" ng-model="flight.departure" ng-trim="true" required class="form-input" />
+    <div ng-messages="flightForm.departure.$error" ng-show="submitted && flightForm.departure.$invalid" class="error-messages">
+        <p ng-message="required">Departure Date is required!</p>
+    </div>
+    <div class="check" ng-show="submitted && flightForm.destination.$valid">&#x2713;</div>
 
     <br />
     <button type="submit" class="form-button-save" >Check Flight Status</button>
@@ -49,7 +55,7 @@
 <div style="color:green;font-weight:bold">{{message}}</div>
 <br />
 
-All Flights: <br />
+Flight Details: <br />
 <table id="flights">
     <tr>
         <th>Origin</th><th>Destination</th><th>Status</th>

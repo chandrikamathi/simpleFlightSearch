@@ -11,6 +11,7 @@
 	<context:component-scan base-package="com.united.flight.search"/>
 	<mvc:default-servlet-handler/>
 
+	<mvc:resources mapping="/resources/**" location="WEB-INF/" />
 <!--    <bean class="com.united.flight.search.controller.FlightController" />-->
 
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

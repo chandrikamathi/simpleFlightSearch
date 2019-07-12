@@ -27,14 +27,14 @@ public class FlightController {
         return new ModelAndView("index", "message", message);
     }
 
-    @RequestMapping(value="/find", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value="/checkFlightStatus", produces = MediaType.APPLICATION_JSON_VALUE)
     public ModelAndView findFlight(@RequestParam String flightNum,
                                    @RequestParam String origin
             , @RequestParam String destination
             , @RequestParam(required = false) Date departure
             , @RequestParam(defaultValue = "false", required = false, value = "return") Boolean ret) {
 
-        ModelAndView mav = new ModelAndView("flightStatus");
+        ModelAndView mav = new ModelAndView("index");
         List<Flight> fl = flightService.getFlightsBasedOnCriteria(flightNum, origin, destination, departure.toString());
         mav.addObject("flights", fl);
         return mav;
