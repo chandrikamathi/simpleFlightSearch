@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Flights</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/flight.css">
+</head>
+<body ng-app="app" ng-controller="FlightCtrl">
+{message}
+
+<form name="flightForm" method="GET" novalidate ng-class="{'form-error':submitted}" ng-submit="getFlightDetails()" >
+
+    <label class="form-label">Flight Number:</label>
+    <input type="text" name="flightNumber" required ng-model="flight.flightNumber" class="form-input"/>
+    <div ng-messages="flightForm.flightNumber.$error" ng-show="submitted && flightForm.flightNumber.$invalid" class="error-messages">
+        <p ng-message="flightNumber">Invalid flight Number!</p>
+        <p ng-message="required">Flight Number is required!</p>
+    </div>
+    <div class="check" ng-show="submitted && flightForm.flightNumber.$valid">&#x2713;</div>
+
+
+    <label class="form-label">Origin:</label>
+    <input type="text" name="origin" ng-model="flight.origin" ng-trim="true" required class="form-input" />
+    <div ng-messages="flightForm.origin.$error" ng-show="submitted && flightForm.origin.$invalid" class="error-messages">
+        <p ng-message="required">Origin Airport is required!</p>
+    </div>
+    <div class="check" ng-show="submitted && flightForm.origin.$valid">&#x2713;</div>
+
+    <label class="form-label">Destination:</label>
+    <input type="text" name="destination" ng-model="flight.destination" ng-trim="true" required class="form-input" />
+    <div ng-messages="flightForm.destination.$error" ng-show="submitted && flightForm.destination.$invalid" class="error-messages">
+        <p ng-message="required">Destination Airport is required!</p>
+    </div>
+    <div class="check" ng-show="submitted && flightForm.origin.$valid">&#x2713;</div>
+
+
+    <br />
+    <button type="submit" class="form-button-save" >Check Flight Status</button>
+    <button type="reset" ng-click="resetForm()" class="form-button-reset">Reset</button>
+</form>
+
+<br />
+<div style="color:red;font-weight:bold">{{errorMessage}}</div>
+<div style="color:green;font-weight:bold">{{message}}</div>
+<br />
+
+All Flights: <br />
+<table id="flights">
+    <tr>
+        <th>Origin</th><th>Destination</th><th>Status</th>
+    </tr>
+    <tr ng-repeat="flight in flights">
+        <td>{{flight.destination}}</td> <td>{{flight.origin}}</td> <td>{{flight.status}}</td>
+    </tr>
+</table>
+</body>
+</html>
