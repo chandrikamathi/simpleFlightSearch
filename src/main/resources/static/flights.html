@@ -1,0 +1,14 @@
+<!DOCTYPE html "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Getting Started: Serving Web Content</title>
+</head>
+<body>
+    Hello world!
+    <tr th:each="flight, iterstat: ${f}">
+        <td th:text="${flight}" th:id="|td${flight.id}|"></td>
+    </tr>
+</body>
+</html>
