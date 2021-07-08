@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
 import java.util.List;
 
@@ -26,9 +27,10 @@ public class FlightController {
 
     }
 
-    @RequestMapping(value="/search", method= RequestMethod.POST,headers = "Accept=*/*",produces = "application/json", consumes="application/json")
+    @RequestMapping(value="/search", method= RequestMethod.POST, headers = "Accept=*/*",  produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Flight>> searchFlights(@RequestBody SearchCriteria criteria)
     {
+
         return new ResponseEntity<List<Flight>>(flightService.searchFlightsByCriteria(criteria), HttpStatus.OK);
 
 

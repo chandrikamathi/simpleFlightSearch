@@ -18,6 +18,8 @@ public class FlightService {
         return flightRepository.getAllFlights();
     }
 
-    public List<Flight> searchFlightsByCriteria(SearchCriteria s){return flightRepository.searchFlightsByCriteria(s);}
+    public List<Flight> searchFlightsByCriteria(SearchCriteria s){
+        return flightRepository.searchFlightsByCriteria(s);
+    }
 
 }

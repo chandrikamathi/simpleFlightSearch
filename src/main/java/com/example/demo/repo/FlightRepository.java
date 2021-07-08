@@ -46,7 +46,7 @@ public class FlightRepository {
 
     public List<Flight> searchFlightsByCriteria(SearchCriteria s){
         List<Flight> flights = getAllFlights();
-        List<Flight> retFlight = new ArrayList<Flight>();
+        List<Flight> retFlight;
         if(s.getFlightNum()!=null||!s.getFlightNum().isEmpty())
             retFlight=flights.stream()
                     .filter(f->f.getFlightNumber().equals(s.getFlightNum()))
@@ -55,7 +55,8 @@ public class FlightRepository {
             retFlight=flights.stream()
                     .filter(f->((f.getOrigin().equals(s.getOrigin()))&&(f.getDestination().equals(s.getDestination()))))
                     .collect(Collectors.toList());
+        retFlight.stream().filter(f->f.getDeparture().equals(s.getDate())).collect(Collectors.toList());
 
-        return retFlight.stream().filter(f->f.getDeparture().equals(s.getDate())).collect(Collectors.toList());
+        return retFlight;
     }
 }

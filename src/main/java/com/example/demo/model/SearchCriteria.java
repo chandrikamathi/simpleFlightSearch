@@ -5,6 +5,7 @@ public class SearchCriteria {
     String flightNum;
     String origin;
     String destination;
+    String date;
 
     public String getFlightNum() {
         return flightNum;
@@ -38,5 +39,5 @@ public class SearchCriteria {
         this.date = date;
     }
 
-    String date;
+
 }

@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+label {
+  display: block;
+  margin: 10px 0 0;
+}
+form {
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+input, textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+
+}
+button {
+    width: 100px;
+    background: #27AE60;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
